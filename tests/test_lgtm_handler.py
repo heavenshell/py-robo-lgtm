@@ -31,8 +31,9 @@ class TestScheduler(TestCase):
         cls.client = Client()
 
     def test_generate_url(self):
+        """ Client().generate() should generate http://lgtm.herokuapp.com url. """
         ret = self.client.generate('cat')
-        print(ret)
+        self.assertRegexpMatches(ret, r'^http://lgtm.herokuapp.com/http://')
 
 
 #class TestLgtmHandler(TestCase):

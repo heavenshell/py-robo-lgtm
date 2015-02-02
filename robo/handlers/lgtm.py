@@ -16,18 +16,29 @@ from robo.decorators import cmd
 
 
 class Client(object):
+    #: Add LGTM word to animation gif.
     DEFAULT_ENDPOINT = 'http://lgtm.herokuapp.com'
 
-    GOOGLE_IMAGE_API_URL = 'http://ajax.googleapis.com/ajax/services/search/images'
+    #: Search animation gif from tumblr.
+    GOOGLE_IMAGE_URL = 'http://ajax.googleapis.com/ajax/services/search/images'
+
     def __init__(self):
         self.resource = None
 
     def generate(self, query):
+        """Generate lgtm uri.
+
+        :param query: Search query
+        """
         url = self.search_resource(query)
         if url:
-            return url['unescapedUrl']
+            return '{0}/{1}'.format(self.DEFAULT_ENDPOINT, url['unescapedUrl'])
 
     def search_resource(self, query):
+        """Search image resource using Google site-search.
+
+        :param query:
+        """
         if self.resource is None:
             params = {
                 'rsz': 8,
@@ -39,7 +50,7 @@ class Client(object):
                 'q': query
             }
 
-            res = requests.get(self.GOOGLE_IMAGE_API_URL, params=params)
+            res = requests.get(self.GOOGLE_IMAGE_URL, params=params)
             if res.status_code == 200:
                 body = json.loads(res.content)
                 self.resource = random.choice(body['responseData']['results'])
