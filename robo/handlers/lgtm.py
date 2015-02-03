@@ -25,11 +25,13 @@ class Client(object):
     def __init__(self):
         self.resource = None
 
-    def generate(self, query):
+    def generate(self, query=None):
         """Generate lgtm uri.
 
         :param query: Search query
         """
+        if query is None:
+            query = 'cat'
         url = self.search_resource(query)
         if url:
             return '{0}/{1}'.format(self.DEFAULT_ENDPOINT, url['unescapedUrl'])
@@ -65,4 +67,4 @@ class Lgtm(object):
     @cmd(regex=r'lgtm( me)? ?(?P<keyword>.+)?',
          description='Generate lgtm image matching with the keyword.')
     def get(self, message, **kwargs):
-        pass
+        return self.client.generate(message.match.group(1))
