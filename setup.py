@@ -12,7 +12,7 @@
 import os
 from setuptools import setup, find_packages
 
-requires = ['robo', 'requests']
+requires = ['robo', 'requests', 'simplejson']
 
 app_name = 'robo.handlers.lgtm'
 
@@ -46,6 +46,6 @@ setup(
         'Topic :: Communications :: Chat',
         'Topic :: Communications :: Conferencing'
     ],
-    tests_require=['robo', 'requests'],
+    tests_require=['robo', 'requests', 'simplejson', 'mock'],
     test_suite='tests'
 )
