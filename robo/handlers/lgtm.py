@@ -9,6 +9,7 @@
     :copyright: (c) 2015 Shinya Ohyanagi, All rights reserved.
     :license: BSD, see LICENSE for more details.
 """
+import logging
 import random
 import requests
 import simplejson as json
@@ -62,6 +63,8 @@ class Client(object):
 
 class Lgtm(object):
     def __init__(self):
+        #: Change requests log level.
+        logging.getLogger('requests').setLevel(logging.ERROR)
         self.client = Client()
 
     @cmd(regex=r'lgtm( me)? ?(?P<keyword>.+)?',
