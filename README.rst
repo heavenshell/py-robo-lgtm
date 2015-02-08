@@ -5,6 +5,13 @@ robo.handlers.lgtm
 
 Generate lgtm image matching with the keyword.
 
+Install
+-------
+
+.. code::
+
+  $ pip install git+https://github.com/heavenshell/py-robo-lgtm
+
 Dependency
 ----------
 
