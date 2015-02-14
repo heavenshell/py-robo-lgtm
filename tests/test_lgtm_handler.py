@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    robo.tests.test_cron
-    ~~~~~~~~~~~~~~~~~~~~
+    robo.tests.test_lgtm_handler
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Tests for robo.handlers.cron.
+    Tests for robo.handlers.lgtm.
 
 
     :copyright: (c) 2015 Shinya Ohyanagi, All rights reserved.
@@ -12,7 +12,6 @@
 import os
 import logging
 import requests
-import simplejson as json
 from mock import patch
 from unittest import TestCase
 from robo.robot import Robot
