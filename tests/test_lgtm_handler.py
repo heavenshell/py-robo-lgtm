@@ -43,7 +43,7 @@ class NullAdapter(object):
         return message
 
 
-class TestScheduler(TestCase):
+class TestClient(TestCase):
     @classmethod
     def setUpClass(cls):
         cls.client = Client()
