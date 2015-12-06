@@ -26,7 +26,7 @@ class Client(object):
     GOOGLE_IMAGE_URL = 'http://ajax.googleapis.com/ajax/services/search/images'
 
     def __init__(self):
-        self.resource = None
+        pass
 
     def generate(self, query=None):
         """Generate lgtm uri.
@@ -44,23 +44,24 @@ class Client(object):
 
         :param query:
         """
-        if self.resource is None:
-            params = {
-                'rsz': 8,
-                'safe': 'active',
-                'v': '1.0',
-                'as_filetype': 'gif',
-                'imgsz': 'large',
-                'as_sitesearch': 'tumblr.com',
-                'q': query
-            }
+        params = {
+            'rsz': 8,
+            'safe': 'active',
+            'v': '1.0',
+            'as_filetype': 'gif',
+            'imgsz': 'large',
+            'as_sitesearch': 'tumblr.com',
+            'q': query
+        }
 
-            res = requests.get(self.GOOGLE_IMAGE_URL, params=params)
-            if res.status_code == 200:
-                body = json.loads(res.content)
-                self.resource = random.choice(body['responseData']['results'])
+        resource = None
+        res = requests.get(self.GOOGLE_IMAGE_URL, params=params)
+        print(res.content)
+        if res.status_code == 200:
+            body = json.loads(res.content)
+            resource = random.choice(body['responseData']['results'])
 
-        return self.resource
+        return resource
 
 
 class Lgtm(object):
