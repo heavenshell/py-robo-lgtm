@@ -56,7 +56,6 @@ class Client(object):
 
         resource = None
         res = requests.get(self.GOOGLE_IMAGE_URL, params=params)
-        print(res.content)
         if res.status_code == 200:
             body = json.loads(res.content)
             resource = random.choice(body['responseData']['results'])
