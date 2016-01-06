@@ -8,7 +8,7 @@
     Porting from `ruboty-lgtm <https://github.com/negipo/ruboty-lgtm>`_.
 
 
-    :copyright: (c) 2015 Shinya Ohyanagi, All rights reserved.
+    :copyright: (c) 2016 Shinya Ohyanagi, All rights reserved.
     :license: BSD, see LICENSE for more details.
 """
 import logging
